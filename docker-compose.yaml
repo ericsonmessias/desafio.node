@@ -33,15 +33,16 @@ services:
       - db
 
   db:
-    image: mysql:8.0
-    command: --innodb-use-native-aio=0
+    build:
+      context: mysql
+      dockerfile: Dockerfile
     container_name: db
     tty: true
-    volumes:
-      - ./mysql:/var/lib/mysql
-    environment:
-      - MYSQL_DATABASE=nodedb
-      - MYSQL_ROOT_PASSWORD=password
+#    volumes:
+#      - ./mysql:/var/lib/mysql
+#    environment:
+#      - MYSQL_DATABASE=nodedb
+#      - MYSQL_ROOT_PASSWORD=password
     networks:
       - node-network
 
