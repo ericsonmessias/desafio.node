@@ -27,8 +27,6 @@ services:
     volumes: 
       - ./node:/usr/src/app
     tty: true
-#    ports:
-#      - "3000:3000"
     depends_on:
       - db
 
@@ -38,17 +36,8 @@ services:
       dockerfile: Dockerfile
     container_name: db
     tty: true
-#    volumes:
-#      - ./mysql:/var/lib/mysql
-#    environment:
-#      - MYSQL_DATABASE=nodedb
-#      - MYSQL_ROOT_PASSWORD=password
     networks:
       - node-network
-
-#volumes:
-#  db_data:
-#    external: true
 
 networks:
   node-network:
