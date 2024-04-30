@@ -2,9 +2,7 @@ FROM node:15
 
 WORKDIR /usr/src/app
 
-RUN npm install mysql2
-
-RUN npm install express --save
+RUN npm install mysql2 && npm install express --save
 
 ENV DOCKERIZE_VERSION v0.6.1
 
