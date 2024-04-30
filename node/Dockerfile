@@ -1,9 +1,10 @@
 FROM node:15
 
-
 WORKDIR /usr/src/app
 
 RUN npm install mysql2
+
+RUN npm install express --save
 
 ENV DOCKERIZE_VERSION v0.6.1
 
@@ -11,6 +12,6 @@ RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSI
     && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
     && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
-COPY . .
+COPY index.js .
 
 EXPOSE 3000
